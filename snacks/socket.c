@@ -9,7 +9,7 @@ int snack_socket(char *port) {
 
     if (getaddrinfo(NULL, port, &hints, &serverInfo) < 0)
     {
-        perror("[Snack Error]: Error en metodo getaddrinfo()");
+        perror("[Snack Error]");
         exit(EXIT_FAILURE);
     }
 
@@ -35,14 +35,14 @@ int snack_connect(char *ip, char *port){
 	int socketServer = socket(serverInfo->ai_family,serverInfo->ai_socktype,serverInfo->ai_protocol);
 
 	if(socketServer < 0){
-		perror("[Snack Error]: Nose pudo crear el socket");
+		perror("[Snack Error]");
 		exit(EXIT_FAILURE);
 	}
 
 	int conexion = connect(socketServer,serverInfo->ai_addr,serverInfo->ai_addrlen);
 
 	if(conexion < 0){
-		perror("[Snack Error]: Nose pudo crear la conexion");
+		perror("[Snack Error]");
 		exit(EXIT_FAILURE);
 	}
 
