@@ -2,9 +2,7 @@
 
 all: 
 	# Install the Shared Libraries
-	shared_lib
-
-shared_lib:
+	
 	# Compiling all .c
 	gcc -Wall -fPIC -c *.c
 	# Compiling all .o
