@@ -47,7 +47,7 @@ int snack_connect(char *ip, char *port){
 	}
 
 	fprintf (stdout, "\n--------------------\n\n");
-  	fprintf (stdout, "App: \tSnack App\n");
+  	fprintf (stdout, "Status: \tSuccess\n");
   	fprintf (stdout, "Env: \tDevelopment\n");
   	fprintf (stdout, "Port: \t%s\n\n", port);
   	fprintf (stdout, "--------------------\n\n");
