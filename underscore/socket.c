@@ -1,6 +1,6 @@
 #include "socket.h"
 
-int snack_socket(char *port) {
+int _socket(char *port) {
 
     memset(&hints, 0, sizeof(hints));
     hints.ai_family = AF_UNSPEC; // No importa si uso IPv4 o IPv6
@@ -9,7 +9,7 @@ int snack_socket(char *port) {
 
     if (getaddrinfo(NULL, port, &hints, &serverInfo) < 0)
     {
-        perror("[Snack Error]");
+        perror("[UScore Lib Error]");
         exit(EXIT_FAILURE);
     }
 
@@ -21,34 +21,33 @@ int snack_socket(char *port) {
     return list_sock;
 }
 
-int snack_connect(char *ip, char *port){
+int _connect(char *ip, char *port){
 
 	struct addrinfo hints;
 	struct addrinfo *serverInfo;
 
-	memset(&hints,0,sizeof(hints));
+	memset(&hints, 0, sizeof(hints));
 	hints.ai_family = AF_UNSPEC;
 	hints.ai_socktype = SOCK_STREAM;
 
 	getaddrinfo(ip, port, &hints, &serverInfo);
 
-	int socketServer = socket(serverInfo->ai_family,serverInfo->ai_socktype,serverInfo->ai_protocol);
+	int socketServer = socket(serverInfo->ai_family, serverInfo->ai_socktype, serverInfo->ai_protocol);
 
-	if(socketServer < 0){
-		perror("[Snack Error]");
+	if(socketServer < 0) {
+		perror("[UScore Lib Error]");
 		exit(EXIT_FAILURE);
 	}
 
-	int conexion = connect(socketServer,serverInfo->ai_addr,serverInfo->ai_addrlen);
+	int conexion = connect(socketServer, serverInfo->ai_addr, serverInfo->ai_addrlen);
 
-	if(conexion < 0){
-		perror("[Snack Error]");
+	if(conexion < 0) {
+		perror("[UScore Lib Error]");
 		exit(EXIT_FAILURE);
 	}
 
 	fprintf (stdout, "\n--------------------\n\n");
   	fprintf (stdout, "Status: \tSuccess\n");
-  	fprintf (stdout, "Env: \tDevelopment\n");
   	fprintf (stdout, "Port: \t%s\n\n", port);
   	fprintf (stdout, "--------------------\n\n");
 
@@ -57,7 +56,7 @@ int snack_connect(char *ip, char *port){
 	return socketServer;
 }
 
-int snack_listen(int socket, int backlog) {
+int _listen(int socket, int backlog) {
     
     listen(socket, backlog);
 
@@ -69,9 +68,9 @@ int snack_listen(int socket, int backlog) {
     return socketCliente;
 }
 
-int snack_default_listen(int socket) {
+int _dlisten(int socket) {
     
-    listen(socket, SNACK_BACKLOG);
+    listen(socket, _BACKLOG);
 
 	struct sockaddr_in addr;           // Esta estructura contendra los datos de la conexion del cliente. IP, puerto, etc.
 	socklen_t addrlen = sizeof(addr);

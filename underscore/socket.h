@@ -15,15 +15,15 @@
 
 // DEFAULT VALUES
 
-#define SNACK_PORT "4000"       // Puerto por defecto
-#define SNACK_BACKLOG 3			// Define cuantas conexiones vamos a mantener pendientes al mismo tiempo
-#define SNACK_PACKAGESIZE 1024	// Define cual va a ser el size maximo del paquete a enviar
+#define _PORT "4000"       // Puerto por defecto
+#define _BACKLOG 3			// Define cuantas conexiones vamos a mantener pendientes al mismo tiempo
+#define _PACKAGESIZE 1024	// Define cual va a ser el size maximo del paquete a enviar
 
 struct addrinfo hints;
 struct addrinfo *serverInfo;
 
 /**
- * METHOD: snack_socket
+ * METHOD: _socket
  * 
  * Crea un socket listenner para un puerto dado
  * 
@@ -33,10 +33,10 @@ struct addrinfo *serverInfo;
  * @return: Devuelve un socket listenner
  */
 
-int snack_socket(char* port);
+int _socket(char* port);
 
 /**
- * METHOD: snack_connect
+ * METHOD: _connect
  * 
  * Crea una conexion para una ip y un puerto especificos
  * 
@@ -47,10 +47,10 @@ int snack_socket(char* port);
  * @return: Devuelve el socket de la conexion
  */
 
-int snack_connect(char *ip, char *port);
+int _connect(char *ip, char *port);
 
 /**
- * METHOD: snack_listen
+ * METHOD: _listen
  * 
  * Espera una conexion y devuelve un socket con la informacion de la misma
  * 
@@ -61,9 +61,9 @@ int snack_connect(char *ip, char *port);
  * @return: Devuelve el socket de la conexion
  */
 
-int snack_listen(int socket, int backlog);
+int _listen(int socket, int backlog);
 
-// snack_listen with default backlog
-int snack_default_listen(int socket);
+// _listen with default backlog
+int _dlisten(int socket);
 
 #endif

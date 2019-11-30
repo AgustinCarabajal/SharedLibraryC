@@ -4,12 +4,12 @@
 
 > git clone https://github.com/AgustinCarabajal/SharedLibraryC.git
 >
-> cd SharedLibraryC && cd snacks
+> cd SharedLibraryC && cd underscore
 >
 > sudo make
   
 * Usage
 
-> Add #include <snacks/FILE_NAME> in your main.c file
+> Add #include <underscore/FILE_NAME> in your main.c file
 >
-> Compile with the flag -lsnacks
+> Compile with the flag -lunderscore
