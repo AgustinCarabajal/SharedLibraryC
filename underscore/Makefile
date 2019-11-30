@@ -1,6 +1,6 @@
 # Makefile Common Libraries
 
-all: 
+install: 
 	# Install the Shared Libraries
 	
 	# Compiling all .c
@@ -14,6 +14,8 @@ all:
 uninstall:
 	rm -f /usr/lib/libunderscore.so
 	rm -rf /usr/include/underscore
+
+update: uninstall install
 
 # Run
 	# Add #include <underscore/FILE_NAME>
