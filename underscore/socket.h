@@ -23,7 +23,7 @@ struct addrinfo hints;
 struct addrinfo *serverInfo;
 
 /**
- * METHOD: _socket
+ * METHOD: _lsocket
  * 
  * Crea un socket listenner para un puerto dado
  * 
@@ -33,7 +33,7 @@ struct addrinfo *serverInfo;
  * @return: Devuelve un socket listenner
  */
 
-int _socket(char* port);
+int _lsocket(char* port);
 
 /**
  * METHOD: _connect
