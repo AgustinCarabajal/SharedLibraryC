@@ -7,7 +7,7 @@
 int main() {
 
     // int sock = _lsocket("4000");
-    int sock = _connect("127.0.0.1", "8888");
+    int sock = _connect("127.0.0.1", "9000");
 
     int enviar = 1;
 	char message[1000];
