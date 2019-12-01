@@ -1,7 +1,6 @@
 #include "select.h"
 
 void _select(char* port, void (*func)()) {
-    int opt = TRUE;
     int addrlen, new_socket, client_socket[MAX_CLIENTS], activity, i, valread, sd;
 	int max_sd;
     struct sockaddr_in address;
