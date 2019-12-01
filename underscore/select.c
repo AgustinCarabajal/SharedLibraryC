@@ -1,6 +1,6 @@
 #include "select.h"
 
-void _select(int lsocket, void (*func)(), int backlog) {
+void _select(char* port, void (*func)()) {
     int opt = TRUE;
     int addrlen, new_socket, client_socket[MAX_CLIENTS], activity, i, valread, sd;
 	int max_sd;
@@ -14,9 +14,11 @@ void _select(int lsocket, void (*func)(), int backlog) {
     for (i = 0; i < MAX_CLIENTS; i++) {
         client_socket[i] = 0;
     }
+
+    int lsocket = _lsocket(port);
 	
     // Try to specify maximum of n pending connections for the master socket
-    if (listen(lsocket, backlog) < 0) {
+    if (listen(lsocket, BACKLOG) < 0) {
         perror("[UScore Lib Error] -listen");
         exit(EXIT_FAILURE);
     }

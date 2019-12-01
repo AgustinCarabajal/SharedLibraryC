@@ -19,8 +19,8 @@
 
 #define TRUE   1
 #define FALSE  0
-#define PORT 8888
 #define MAX_CLIENTS 30
+#define BACKLOG 5
 
 /**
  * METHOD: _select
@@ -32,11 +32,10 @@
  *      func -> Funcion custom a ejecutar en cada interaccion [use func(sd, buffer)]
  *          sd -> File Descriptor
  *          buffer -> Mensaje recibido de la conexion
- *      backlog -> Funcion custom a ejecutar en cada interaccion
  *
  * @example:
  *      Call with _lsocket("<SOME_PORT>");
  */
-void _select(int lsocket, void (*func)(), int backlog);
+void _select(char* port, void (*func)());
 
 #endif
