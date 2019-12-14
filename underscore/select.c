@@ -1,7 +1,6 @@
 #include "select.h"
 
-void _select(char* port, void (*func)()) {
-    int opt = TRUE;
+void _select(char* port, void (*func)(), int b_size) {
     int addrlen, new_socket, client_socket[MAX_CLIENTS], activity, i, valread, sd;
 	int max_sd;
     struct sockaddr_in address;
@@ -80,9 +79,9 @@ void _select(char* port, void (*func)()) {
             sd = client_socket[i];
 
             if (FD_ISSET( sd, &readfds)){
-                buffer = malloc(1024);
+                buffer = malloc(b_size);
 
-                if ((valread = read( sd, buffer, 1024)) <= 0) {
+                if ((valread = read( sd, buffer, b_size)) <= 0) {
 
                     // Connection lost
                     free(buffer);
@@ -101,5 +100,6 @@ void _select(char* port, void (*func)()) {
         }
     }
 
+    free(buffer);
     FD_ZERO(&readfds);
 }

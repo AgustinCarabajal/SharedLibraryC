@@ -32,10 +32,11 @@
  *      func -> Funcion custom a ejecutar en cada interaccion [use func(sd, buffer)]
  *          sd -> File Descriptor
  *          buffer -> Mensaje recibido de la conexion
+ *          b_size -> longitud maxima del string a recibir
  *
  * @example:
- *      Call with _lsocket("<SOME_PORT>");
+ *      Call with _select("9000", myFunction, 1024);
  */
-void _select(char* port, void (*func)());
+void _select(char* port, void (*func)(), int b_size);
 
 #endif
