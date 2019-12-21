@@ -34,7 +34,6 @@ pthread_t _tcon;
  *      port -> Puerto en el que se van a escuchar las conexiones
  *      func -> Funcion custom a ejecutar en cada interaccion [use func(data)]
  *          data -> Informacion de los sockets de la conexion
- *      b_size -> Longitud maxima del string a recibir
  *
  * @example:
  *      Call with _thread("9000", myFunction);
