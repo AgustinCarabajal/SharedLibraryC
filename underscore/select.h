@@ -28,11 +28,11 @@
  * Permite monitorear varias conexiones en un thread
  * 
  * @params: 
- *      lsocket -> Listener socket
+ *      port -> Puerto en el que se van a escuchar las conexiones
  *      func -> Funcion custom a ejecutar en cada interaccion [use func(sd, buffer)]
  *          sd -> File Descriptor
  *          buffer -> Mensaje recibido de la conexion
- *          b_size -> longitud maxima del string a recibir
+ *      b_size -> Longitud maxima del string a recibir
  *
  * @example:
  *      Call with _select("9000", myFunction, 1024);
