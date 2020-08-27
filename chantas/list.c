@@ -1,5 +1,6 @@
+// DO NOT USE - insecure methods
+
 #include "list.h"
-#include <stdlib.h>
 
 _node* head = NULL;
 _node* tail = NULL;
@@ -29,4 +30,14 @@ void* _dequeue() {
         free(temp);
         return result;
     }
+}
+
+void _printl() {
+    _node* temp = malloc(sizeof(_node));
+    temp = head;
+    while (temp) {
+        printf("%s", temp -> data);
+        temp = temp -> next;
+    }
+    free(temp);
 }
