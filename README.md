@@ -4,17 +4,17 @@
 
 > git clone https://github.com/AgustinCarabajal/SharedLibraryC.git
 >
-> cd SharedLibraryC && cd chantas
+> cd SharedLibraryC && cd unnamed
 >
 > sudo make install
 
 - Usage
 
-> Add #include <chantas/FILE_NAME> in your main.c file
+> Add #include <unnamed/FILE_NAME> in your main.c file
 >
-> Compile with the flag -lchantas
+> Compile with the flag -lunnamed
 
-Also you can add libraries into the /chantas folder and run the following command
+Also you can add libraries into the /unnamed folder and run the following command
 
 > sudo make update
 
